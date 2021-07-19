@@ -1,0 +1,18 @@
+Wtf is gonna happen:
+Determine libraries to use and imports needed. Pygame? Not sure.
+This will only be the framework for it as of now. 
+Make the framework and base functionality + code layout for future adaptation.
+Add in and orgranize classes and files for smooth code flow. 
+Seperate classes for every object in the game. No compressing in multiple objects' code into 1 class. - RIP
+One main file to run all other related classes in a domino effect.
+Comment code thoroughly.
+Once base framework is layed, move onto creating the actual objects and displaying them into a window.
+Create maps and ways to render the maps.
+TOP GOAL: Make maps render only what the viewport can see.
+Queue FPS optimization
+Clean up and further develope other in game objects like player, movement and animation.
+Further delevope map generation and FPS optimization.
+Make sure to clean code further.
+Skip: loads of troubleshooting and programming.
+IMPLEMENT MULTIPLAYER
+Then rework all your code for it cause you dont know how it works. 
