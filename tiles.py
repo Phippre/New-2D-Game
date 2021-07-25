@@ -45,11 +45,13 @@ class TileMap():
         for row in map: #Looping through each row
             x = 0 #Every row we go through we have to set x back to the starting position
             for tile in row: #For each number in each row we will start creating the tiles. 
-                if tile == '0': #This is saying that if the number in the CSV file is equal to "whatever" then we will draw a certain tile for it
+                if tile == '1': #This is saying that if the number in the CSV file is equal to "whatever" then we will draw a certain tile for it
                     tiles.append(Tile('grass1.png', x * self.tile_size, y * self.tile_size, self.spritesheet)) #Creating an instance of Tile() for every "0". This will get passed the name of the tile we want to grab the position is gonna be whatever x and y we are at times the tile size. 
                     #Then its passing the instance of the Spritesheet class we made in main.py and pass it off to Tile().
-                elif tile == '1':
+                elif tile == '2':
                     self.start_x, self.start_y = x * self.tile_size, y * self.tile_size #"1" is the player. Setting the starting position for it here
+                elif tile == '0':
+                    tiles.append(Tile("dirt1.png", x * self.tile_size, y * self.tile_size, self.spritesheet))
                 x+=1 #Adding one to x in each loop
             y+=1 #Once the loop is done we add to y and it will set x back to 0
         self.map_w, self.map_h = x * self.tile_size, y * self.tile_size #Setting map_w and map_h to the last value of x and y times the tile size.

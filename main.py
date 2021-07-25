@@ -19,15 +19,12 @@ clock = pygame.time.Clock()
 
 #Declaring the spritesheet to use, calling the Spritesheet class. This is used to initialize the class and pass what spritesheet and JSON file we are using. 
 spritesheet = Spritesheet('res/sprites/spritesheet.png')
+#Creating an instance of the Player class.
 player = Player()
-#Delcaring the player image by parsing the spritesheet for the player.png. This will automatically search through the JSON file for coordinates and send back a processed image on a Surface, ready to display to the canvas. 
-#player_img = spritesheet.parse_sprite('player.png')
-#player_rect = player_img.get_rect()
 #Creating a map, passing the map csv file, passing the spritesheet instance created earlier
 map = TileMap('res/map.csv', spritesheet)
+#Setting player spawn position.
 player.position.x, player.position.y = map.start_x, map.start_y
-#player_rect.x = map.start_x
-#player_rect.y = map.start_y
 
 while run:
     dt = clock.tick(60) * .001 * TARGET_FPS
@@ -53,14 +50,13 @@ while run:
                     player.velocity.y *= .25
                     player.is_jumping = False
 
-    player.update(dt)
+    player.update(dt, map.tiles)
 
     canvas.fill((30, 30, 30))
     #Drawing the map onto the canvas
     map.draw_map(canvas)
+    #Drawing the player. 
     player.draw(canvas)
-    #Drawing the player on the canvas
-    #canvas.blit(player_img, player_rect)
     #Drawing the canvas onto the screen at 0, 0
     screen.blit(canvas, (0, 0))
     pygame.display.update()
